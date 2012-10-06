@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Idea Overflow</title>
+	<link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.1.1/css/bootstrap-combined.min.css" rel="stylesheet">
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+</head>
+<body>
+	<div class="well"><h1>Welcome to Idea Overflow</h1></div>
+
+	<button id="hackMode" class="btn btn-large" onclick="toggleHack()" value="0">Enable Hack Mode</button>
+
+	<hr />
+	
+	<div class="input-append">
+		<input class="span12" id="idea" type="text" placeholder="Add an idea"><button class="btn" type="button" onClick="addIdea()">Add!</button>
+	</div>
+	<div class="input-append">
+		<input class="span12" id="interest" type="text" placeholder="Add an interest"><button class="btn" type="button" onClick="addInterest()">Add!</button>
+	</div>
+	<div class="input-append">
+		<input class="span12" id="talent" type="text" placeholder="Add a talent"><button class="btn" type="button" onClick="addTalent()">Add!</button>
+	</div>
+
+	<a href="graph.html"><button class="btn btn-primary">See the idea graph</button></a>
+
+	<script type="text/javascript">
+		navigator.geolocation.getCurrentPosition(GetLocation);
+		function GetLocation(location) {
+	    lat = location.coords.latitude;
+			lng = location.coords.longitude;
+		}
+
+		function toggleHack(){
+			$("#hackMode") = btn
+			btn.toggleClass("btn-primary")
+			if (btn.val()){btn.val(1);}
+			else {btn.val(0);}
+		}
+				
+
+	</script>
+</body>
+</html>
