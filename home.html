@@ -6,26 +6,23 @@
 	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 </head>
 <body>
+<div class="container">
 	<div class="well"><h1>Welcome to Idea Overflow</h1></div>
 
 	<div class="input-append">
-		<button id="hackmode" class="btn btn-large" onclick="toggleHack()">Enable Hack Mode</button>
+		<input class="span11" id="idea" type="text" placeholder="Add an idea"><button class="btn" type="button" onClick="addIdea()">Add!</button>
+	</div>
+	<div class="input-append">
+		<input class="span11" id="interest" type="text" placeholder="Add an interest"><button class="btn" type="button" onClick="addInterest()">Add!</button>
+	</div>
+	<div class="input-append">
+		<input class="span11" id="talent" type="text" placeholder="Add a talent"><button class="btn" type="button" onClick="addTalent()">Add!</button>
 	</div>
 
 	<hr />
-	
-	<div class="input-append">
-		<input class="span12" id="idea" type="text" placeholder="Add an idea"><button class="btn" type="button" onClick="addIdea()">Add!</button>
-	</div>
-	<div class="input-append">
-		<input class="span12" id="interest" type="text" placeholder="Add an interest"><button class="btn" type="button" onClick="addInterest()">Add!</button>
-	</div>
-	<div class="input-append">
-		<input class="span12" id="talent" type="text" placeholder="Add a talent"><button class="btn" type="button" onClick="addTalent()">Add!</button>
-	</div>
 
-	<a href="graph.html"><button class="btn btn-primary">See the idea graph</button></a>
-
+	<a href="graph.html"><button class="btn btn-primary btn-block">See the idea graph</button></a>
+</div>
 	<script type="text/javascript">
 		navigator.geolocation.getCurrentPosition(GetLocation);
 		function GetLocation(location) {
