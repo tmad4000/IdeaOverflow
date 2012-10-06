@@ -10,7 +10,7 @@ else {$logged_in = 0;}
 	<link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.1.1/css/bootstrap-combined.min.css" rel="stylesheet">
 	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 </head>
-<body>
+<body onLoad="load()">
 <div class="container">
 
 	<div class="well">
@@ -31,8 +31,11 @@ else {$logged_in = 0;}
 	
 	<br />
 
-	<?php if(!$logged_in){echo '<button id="hackMode" class="btn btn-block btn-large" onclick="toggleHack()" value="off">Enable Hack Mode</button>';} ?>
-
+	<?php 
+		if(!$logged_in){echo '<button id="hackMode" class="btn btn-block btn-large" onclick="toggleHack()" value="off">Enable Hack Mode</button>';}
+		else {echo '<div id="user_data"></div>';}
+	?>
+	
 </div>
 
 	<script type="text/javascript">
@@ -52,12 +55,24 @@ else {$logged_in = 0;}
 		function cont(){
 			$.ajax({"url":"hackmodeonoff.php",
 				"data":{"status":$("#hackMode").val(),"user_email":$("#email").val(),"lat":$.lat,"lng":$.lng},
-				"success":function(){
+				"success":function(data){
+					localStorage.setItem("user_data", data);
 					window.location.reload();
 				}
 			})
 		}
-				
+
+		function load(){
+			if (localStorage.getItem("user_data") != null){
+				var table="<table class='table'><tr><th>Email</th></tr>";
+				var data = $.parseJSON(localStorage.getItem("user_data"));
+				for (i=0;i<data.length;i++){
+					table+="<tr><td>"+data['email']+"</td></tr>";
+				}
+				table += "</table>
+				$("#user_data").html(table);
+			}
+		}
 
 	</script>
 </body>
