@@ -8,34 +8,36 @@
 <body>
 	<div class="well"><h1>Welcome to Idea Overflow</h1></div>
 
-	<button id="hackMode" class="btn btn-large" onclick="toggleHack()" value="0">Enable Hack Mode</button>
+	<button id="hackMode" class="btn btn-block btn-large" onclick="toggleHack()" value="off">Enable Hack Mode</button>
 
 	<hr />
 	
-	<div class="input-append">
-		<input class="span12" id="idea" type="text" placeholder="Add an idea"><button class="btn" type="button" onClick="addIdea()">Add!</button>
-	</div>
-	<div class="input-append">
-		<input class="span12" id="interest" type="text" placeholder="Add an interest"><button class="btn" type="button" onClick="addInterest()">Add!</button>
-	</div>
-	<div class="input-append">
-		<input class="span12" id="talent" type="text" placeholder="Add a talent"><button class="btn" type="button" onClick="addTalent()">Add!</button>
+	<div class="controls input-append">
+		<input class="input-xxlarge" id="email" type="text" placeholder="Enter email to proceed"><button class="btn" type="button" onClick="cont()">Go!</button></input>
 	</div>
 
-	<a href="graph.html"><button class="btn btn-primary">See the idea graph</button></a>
 
 	<script type="text/javascript">
 		navigator.geolocation.getCurrentPosition(GetLocation);
 		function GetLocation(location) {
-	    lat = location.coords.latitude;
-			lng = location.coords.longitude;
+	    $.lat = location.coords.latitude;
+			$.lng = location.coords.longitude;
 		}
 
 		function toggleHack(){
-			$("#hackMode") = btn
+			var btn = $("#hackMode")
 			btn.toggleClass("btn-primary")
-			if (btn.val()){btn.val(1);}
-			else {btn.val(0);}
+			if (btn.val()){btn.val("on");btn.text("Disable Hack Mode");}
+			else {btn.val("off");btn.text("Enable Hack Mode");}
+		}
+
+		function cont(){
+			$.ajax({"url":"hackmodeonoff.php",
+				"data":{"status":$("#hackMode").val(),"email":$("#email").val(),"lat":$.lat,"lng":$.lng},
+				"success":function(){
+					window.location="bah";
+				}
+			})
 		}
 				
 
