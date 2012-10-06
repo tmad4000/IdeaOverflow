@@ -9,35 +9,6 @@ else {$logged_in = 0;}
 	<title>Idea Overflow</title>
 	<link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.1.1/css/bootstrap-combined.min.css" rel="stylesheet">
 	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-</head>
-<body onLoad="load()">
-<div class="container">
-
-	<div class="well">
-	<h1>IdeaOverflow <?php if($logged_in){echo "<a id='logout' class='pull-right' href='#'><button class='btn btn-primary'>Log Out</button></a>";}?></h1>
-	</div>
-	<div "width:100px;float:right">
-		<?php 
-			if($logged_in) {echo "<p class='lead'>Welcome {$_SESSION['user_email']}!";} 
-			else {
-		?>
-		<div class="input-append">
-			<input class="span11" id="email" type="text" placeholder="Enter email to proceed"><button class="btn" type="button" onClick="cont()">Go!</button></input>
-		</div>
-		<?php
-			}
-		?>
-	</div>
-	
-	<br />
-
-	<?php 
-		if(!$logged_in){echo '<button id="hackMode" class="btn btn-block btn-large" onclick="toggleHack()" value="off">Enable Hack Mode</button>';}
-		else {echo '<div id="user_data"></div>';}
-	?>
-	
-</div>
-
 	<script type="text/javascript">
 		navigator.geolocation.getCurrentPosition(GetLocation);
 		function GetLocation(location) {
@@ -75,5 +46,35 @@ else {$logged_in = 0;}
 		}
 
 	</script>
+
+</head>
+<body onLoad="load()">
+<div class="container">
+
+	<div class="well">
+	<h1>IdeaOverflow <?php if($logged_in){echo "<a id='logout' class='pull-right' href='#'><button class='btn btn-primary'>Log Out</button></a>";}?></h1>
+	</div>
+	<div "width:100px;float:right">
+		<?php 
+			if($logged_in) {echo "<p class='lead'>Welcome {$_SESSION['user_email']}!";} 
+			else {
+		?>
+		<div class="input-append">
+			<input class="span11" id="email" type="text" placeholder="Enter email to proceed"><button class="btn" type="button" onClick="cont()">Go!</button></input>
+		</div>
+		<?php
+			}
+		?>
+	</div>
+	
+	<br />
+
+	<?php 
+		if(!$logged_in){echo '<button id="hackMode" class="btn btn-block btn-large" onclick="toggleHack()" value="off">Enable Hack Mode</button>';}
+		else {echo '<div id="user_data"></div>';}
+	?>
+	
+</div>
+
 </body>
 </html>
