@@ -1,0 +1,8 @@
+AuthUserFile /mnt/target03/355806/697845/search.capitalsphere.com/.htpasswd
+AuthGroupFile /dev/null
+AuthName "A Restricted Area"
+AuthType Basic
+
+<Limit GET POST>
+require valid-user
+</Limit>

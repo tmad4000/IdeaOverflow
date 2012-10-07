@@ -33,23 +33,13 @@ else {$logged_in = 0;}
 			})
 		}
 
-		function nextSkill(){
-			items=Array("Javascript","JQuery","PHP","Mobile","","","","","","","","","");
-			var item_s = items[Math.floor(Math.random()*items.length)];
-			return item_s;
-		}
-		function nextInterest(){
-			items=Array("BikeSting","GraceGrader","IdeaOverflow","ClackerAlert","","","","","","","","","","");
-			var item_s = items[Math.floor(Math.random()*items.length)];
-			return item_s;
-		}
 		function load(){
 			if (localStorage.getItem("user_data") != null){
-				var table="<table class='table'><tr><th>Email</th><th>Skills</th><th>Interests</th><th>Login Time</th></tr>";
+				var table="<table class='table'><tr><th>Email</th><th>Login Time</th></tr>";
 				var data = $.parseJSON(localStorage.getItem("user_data"));
 				for (i=0;i<data.length;i++){
 					var time = new Date(data[i]["status_update_time"]*1000);
-					table+="<tr><td><a href='mailto:"+data[i]['email']+"'>" + data[i]['email'] + "</a> </td><td>"+nextSkill()+"</td><td><a href='#'>"+nextInterest()+"</a></td><td>"+time.getHours()+":"+time.getMinutes()+" "+(time.getMonth()+1)+"/"+time.getDate()+"</td></tr>";
+					table+="<tr><td><a href='mailto:"+data[i]['email']+"'>" + data[i]['email'] + "</a> </td><td>"+time.getHours()+":"+time.getMinutes()+" "+(time.getMonth()+1)+"/"+time.getDate()+"</td></tr>";
 				}
 				table += "</table>";
 				$("#user_data").html(table);
@@ -63,8 +53,7 @@ else {$logged_in = 0;}
 <div class="container">
 
 	<div class="well">
-	<h1><img src="ideagraphpaintico.jpg" height="50px" width="50px" /> IdeaOverflow<?php if($logged_in){echo "<a id='logout' class='pull-right' href='#'><button class='btn btn-primary'>Log Out</button></a>";}?> <br>
-<a href="http://instadefine.com/IdeaOverflow/ATTHackathon/git/IdeaOverflow/index_copygraph.php" style="font-size:16px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Projects_</a></h1>
+	<h1>IdeaOverflow <?php if($logged_in){echo "<a id='logout' class='pull-right' href='#'><button class='btn btn-primary'>Log Out</button></a>";}?></h1>
 	</div>
 	<div "width:100px;float:right">
 		<?php 
@@ -74,24 +63,22 @@ else {$logged_in = 0;}
 		<div class="input-append">
 			<input class="span11" id="email" type="text" placeholder="Enter email to proceed"><button class="btn" type="button" onClick="cont()">Go!</button></input>
 		</div>
-        <div class="input-append">
-			<input class="span11" id="skills" type="text" placeholder="Skills"></input>
-		</div>
-        <div class="input-append">
-			<input class="span11" id="interests" type="text" placeholder="Interests"></input>
-		</div>
 		<?php
 			}
 		?>
 	</div>
 	
 	<br />
+
+	<iframe src="http://instadefine.com/IdeaOverflow/ATTHackathon/git/IdeaOverflow/IdeaGrapherFishEye3/VisionCharter0.2.htm" height="600px" width="100%"></iframe>
+<iframe src="https://docs.google.com/document/d/1sZEa_24vyRoihwJS4eWxCMuuT3DwpXBHpIYJRsx0RE4/edit#" height="400px" width="100%"></iframe>
+
 	<?php 
-		if(!$logged_in){
-			//echo '<button id="hackMode" class="btn btn-block btn-large" onclick="toggleHack()" value="off">Enable Hack Mode</button>';
-			}
+	if(!$logged_in){
+//		echo '<button id="hackMode" class="btn btn-block btn-large" onclick="toggleHack()" value="off">Enable Hack Mode</button>';
+}
 		else {
-			//echo '<button id="hackMode" class="btn btn-block btn-large" onclick="toggleHack()" value="off">Disable Hack Mode</button>';
+//			echo '<button id="hackMode" class="btn btn-block btn-large" onclick="toggleHack()" value="off">Disable Hack Mode</button>';
 			echo '<div id="user_data"></div>';}
 	?>
 	
