@@ -15,7 +15,7 @@ print json_encode($rows);
 */
 	
 $sts = $_REQUEST['status']=="on" ? 1 : 0;
-$loginparams=array("'".$_REQUEST['user_email']."'",$_REQUEST['lat'],$_REQUEST['lng'],$sts,time());
+$loginparams=array("'".$_REQUEST['user_email']."'",$_REQUEST['lat'],$_REQUEST['lng'],$sts,time(),"'".$_REQUEST['skills']."'","'".$_REQUEST['interests']."'");
 
 if(count($rows)<0) { //NEVER FOR NOW
 /*	if(!$_SESSION['user_email'])
@@ -35,7 +35,7 @@ if(count($rows)<0) { //NEVER FOR NOW
 	*/
 }
 else {
-	$q='INSERT INTO users (email, latitude,longitude,status,status_update_time) VALUES ('.implode(',', $loginparams).')';
+	$q='INSERT INTO users (email, latitude,longitude,status,status_update_time,skills,interests) VALUES ('.implode(',', $loginparams).')';
 	//echo $q."\n\n";
 	$result=mysql_query($q) or die("SELECT Error: ".mysql_error());
 }

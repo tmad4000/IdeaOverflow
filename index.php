@@ -12,7 +12,9 @@ else {$logged_in = 0;}
 	<script type="text/javascript">
 		navigator.geolocation.getCurrentPosition(GetLocation);
 		function GetLocation(location) {
-	    $.lat = location.coords.latitude;
+			$.lat=0
+			$.lng=0
+			$.lat = location.coords.latitude;
 			$.lng = location.coords.longitude;
 		}
 
@@ -25,7 +27,7 @@ else {$logged_in = 0;}
 
 		function cont(){
 			$.ajax({"url":"hackmodeonoff.php",
-				"data":{"status":$("#hackMode").val(),"user_email":$("#email").val(),"lat":$.lat,"lng":$.lng},
+				"data":{"status":$("#hackMode").val(),"user_email":$("#email").val(),"lat":$.lat,"lng":$.lng,"skills":$("#skills").val(),"interests":$("#interests").val()},
 				"success":function(data){
 					localStorage.setItem("user_data", data);
 					window.location.reload();
@@ -49,7 +51,7 @@ else {$logged_in = 0;}
 				var data = $.parseJSON(localStorage.getItem("user_data"));
 				for (i=0;i<data.length;i++){
 					var time = new Date(data[i]["status_update_time"]*1000);
-					table+="<tr><td><a href='mailto:"+data[i]['email']+"'>" + data[i]['email'] + "</a> </td><td>"+nextSkill()+"</td><td><a href='#'>"+nextInterest()+"</a></td><td>"+time.getHours()+":"+time.getMinutes()+" "+(time.getMonth()+1)+"/"+time.getDate()+"</td></tr>";
+					table+="<tr><td><a href='mailto:"+data[i]['email']+"'>" + data[i]['email'] + "</a> </td><td>"+data[i]['skills']+"</td><td><a href='#'>"+data[i]['interests']+"</a></td><td>"+time.getHours()+":"+time.getMinutes()+" "+(time.getMonth()+1)+"/"+time.getDate()+"</td></tr>";
 				}
 				table += "</table>";
 				$("#user_data").html(table);
