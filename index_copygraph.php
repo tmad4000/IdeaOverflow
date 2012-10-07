@@ -53,7 +53,8 @@ else {$logged_in = 0;}
 <div class="container">
 
 	<div class="well">
-	<h1>IdeaOverflow <?php if($logged_in){echo "<a id='logout' class='pull-right' href='#'><button class='btn btn-primary'>Log Out</button></a>";}?></h1>
+	<h1><a border="0" href="http://ideaoverflow.tk"><img src="ideagraphpaintico.jpg" height="50px" width="50px" /></a> IdeaOverflow<?php if($logged_in){echo "<a id='logout' class='pull-right' href='#'><button class='btn btn-primary'>Log Out</button></a>";}?> <br>
+<a href="http://instadefine.com/IdeaOverflow/ATTHackathon/git/IdeaOverflow/index_copygraph.php" style="font-size:16px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Projects_</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://hackathonprojects.tk" style="font-size:16px" target="_blank">HackathonProjects.tk</a></h1>
 	</div>
 	<div "width:100px;float:right">
 		<?php 
@@ -70,8 +71,8 @@ else {$logged_in = 0;}
 	
 	<br />
 
-	<iframe src="http://instadefine.com/IdeaOverflow/ATTHackathon/git/IdeaOverflow/IdeaGrapherFishEye3/VisionCharter0.2.htm" height="600px" width="100%"></iframe>
-<iframe src="https://docs.google.com/document/d/1sZEa_24vyRoihwJS4eWxCMuuT3DwpXBHpIYJRsx0RE4/edit#" height="400px" width="100%"></iframe>
+	<iframe src="http://instadefine.com/IdeaOverflow/ATTHackathon/git/IdeaOverflow/IdeaGrapherFishEye3/VisionCharter0.2.htm" height="600px" width="100%" scrolling="no"></iframe>
+<iframe src="https://docs.google.com/document/d/1sZEa_24vyRoihwJS4eWxCMuuT3DwpXBHpIYJRsx0RE4/edit#" height="600px" width="100%"></iframe>
 
 	<?php 
 	if(!$logged_in){

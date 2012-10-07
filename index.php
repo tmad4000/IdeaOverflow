@@ -65,8 +65,8 @@ else {$logged_in = 0;}
 <div class="container">
 
 	<div class="well">
-	<h1><img src="ideagraphpaintico.jpg" height="50px" width="50px" /> IdeaOverflow<?php if($logged_in){echo "<a id='logout' class='pull-right' href='#'><button class='btn btn-primary'>Log Out</button></a>";}?> <br>
-<a href="http://instadefine.com/IdeaOverflow/ATTHackathon/git/IdeaOverflow/index_copygraph.php" style="font-size:16px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Projects_</a></h1>
+	<h1><a border="0" href="http://ideaoverflow.tk"><img src="ideagraphpaintico.jpg" height="50px" width="50px" /></a> IdeaOverflow<?php if($logged_in){echo "<a id='logout' class='pull-right' href='#'><button class='btn btn-primary'>Log Out</button></a>";}?> <br>
+<a href="http://instadefine.com/IdeaOverflow/ATTHackathon/git/IdeaOverflow/index_copygraph.php" style="font-size:16px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Projects_</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://hackathonprojects.tk" style="font-size:16px" target="_blank">HackathonProjects.tk</a></h1>
 	</div>
 	<div "width:100px;float:right">
 		<?php 
